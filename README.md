@@ -3,85 +3,65 @@
 ## Aim:
 To write a program to implement the Decision Tree Regressor Model for Predicting the Salary of the Employee.
 
-## Equipment's Required:
+## Equipments Required:
 1. Hardware – PCs
 2. Anaconda – Python 3.7 Installation / Moodle-Code Runner
 
-## Algorithm:
-
-1. Import the standard libraries.
-2. Upload the dataset and check for any null values using .isnull() function.
-3. Import LabelEncoder and encode the dataset.
-4. Import DecisionTreeRegressor from sklearn and apply the model on the dataset.
-5. Predict the values of arrays.
-6. Import metrics from sklearn and calculate the MSE and R2 of the model on the dataset.
-7. Predict the values of array.
-8. Apply to new unknown values.
+## Algorithm
+1. Import the required libraries.
+2. Upload the csv file and read the dataset.
+3. Check for any null values using the isnull() function.
+4. From sklearn.tree inport DecisionTreeRegressor.
+5. Import metrics and calculate the Mean squared error.
+6. Apply metrics to the dataset, and predict the output.
 
 ## Program:
-~~~
+```
 Program to implement the Decision Tree Regressor Model for Predicting the Salary of the Employee.
-Developed by: RAGUL VK
-Register Number: 212221240043
+Developed by: Vaishnavi M
+RegisterNumber: 212221240058
+```
+```python
+
 import pandas as pd
-data=pd.read_csv("Salary.csv")
+data = pd.read_csv("Salary.csv")
 data.head()
 data.info()
 data.isnull().sum()
 from sklearn.preprocessing import LabelEncoder
-le=LabelEncoder()
-data["Position"]=le.fit_transform(data["Position"])
+le = LabelEncoder()
+data["Position"] = le.fit_transform(data["Position"])
 data.head()
-x=data[["Position","Level"]]
-y=data["Salary"]
+x = data[["Position","Level"]]
+y = data["Salary"]
 from sklearn.model_selection import train_test_split
 x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.2,random_state=2)
 from sklearn.tree import DecisionTreeRegressor
 dt = DecisionTreeRegressor()
 dt.fit(x_train,y_train)
-y_pred=dt.predict(x_test)
+y_pred = dt.predict(x_test)
 from sklearn import metrics
-mse=metrics.mean_squared_error(y_test,y_pred)
+mse = metrics.mean_squared_error(y_test,y_pred)
 mse
-r2=metrics.r2_score(y_test,y_pred)
+r2 = metrics.r2_score(y_test,y_pred)
 r2
 dt.predict([[5,6]])
-~~~
+```
 
 ## Output:
-
 ### Data Head:
-
-![output](./img/1.png)
-
-### Data Info:
-
-![output](./img/2.png)
-
-### Data Isnull:
-
-![output](./img/3.png)
-
-### Data Head:
-
-![output](./img/4.png)
-
-### dt.fit:
-
-![output](./img/5.png)
-
+![Decision Tree Regressor Model for Predicting the Salary of the Employee](output.png)
+### Data Information:
+![Decision Tree Regressor Model for Predicting the Salary of the Employee](output2.png)
+### Data Head after applying LabelEncoder:
+![Decision Tree Regressor Model for Predicting the Salary of the Employee](output4.png)
 ### MSE:
-
-![output](./img/6.png)
-
+![Decision Tree Regressor Model for Predicting the Salary of the Employee](output5.png)
 ### R2:
+![Decision Tree Regressor Model for Predicting the Salary of the Employee](output6.png)
+### Data Prediction:
+![Decision Tree Regressor Model for Predicting the Salary of the Employee](output7.png)
 
-![output](./img/7.png)
-
-### Predicted Value:
-
-![output](./img/8.png)
 
 ## Result:
-
-Thus, the program to implement the Decision Tree Regressor Model for Predicting the Salary of the Employee is written and verified using python programming.
+Thus the program to implement the Decision Tree Regressor Model for Predicting the Salary of the Employee is written and verified using python programming.
